@@ -117,9 +117,10 @@ function del_user($name, $pass){
         }
     }
     if($del==true){
-        echo "<script>alert(Utente ".$name." eliminato..);</script>";
+        echo "ciao";
+        echo "<script>alert('Utente ".$name." eliminato..');</script>";
     }else{
-        echo "<script>alert(Utente ".$name." non trovato o password errata.);</script>";
+        echo "<script>alert('Utente ".$name." non trovato o password errata.');</script>";
     }
 }
 
@@ -165,29 +166,67 @@ function change_pass($name, $pass){
     if(basename(getcwd())=="login"){
         $per="users/*.txt";
     }
+    $find = false;
     foreach(glob($per) as $user){
         $us = substr(basename($user), 0, -4);
+        //echo $us;
         if($us==$name){
+            //echo "ok";
+            $find = true;
             $file = fopen($user, "r");
             $arr = array();
             $l=0;
             foreach(file($user) as $line){
                 if($l>0){
-                    $arr[$l++] = $line;
+                    $arr[$l] = $line;
+                }else{
+                    $arr[$l] = $pass."\n";
                 }
+                $l++;
             }
+            /*foreach($arr as $r){
+                echo $r;
+            }*/
+            fclose($file);
+            $file = fopen($user, "w");
+            foreach($arr as $r){
+                fwrite($file, $r);
+            }
+            fclose($file);
         }
     }
+    if($find){
+        echo "<script>alert('Password cambiata');</script>";
+    }else{
+        echo "<script>alert('Password non cambiata');</script>";
+    }
+
 }
 
 function change_pass_basic($name, $pas){
-    $per="login/users/";
+    $per="login/users/*.txt";
     if(basename(getcwd())=="login"){
-        $per="users/";
+        $per="users/*.txt";
     }
-    $user = fopen($per.$name.".txt", "w");
-    fwrite($user,$pas);
-    fclose($user);
+    $find=false;
+    foreach(glob($per) as $user){
+        $us = substr(basename($user), 0, -4);
+        echo $us.$name." - ";
+        if($name == $us){
+            echo $name;
+            $find = true;
+            $file = fopen($user, "w");
+            fwrite($file,$pas);
+            fclose($file);
+        }
+    }
+    if($find){
+        echo "<script>alert('Password cambiata');</script>";
+    }else{
+        echo "<script>alert('Password non cambiata');</script>";
+    }
+
 }
+    
 
 ?>

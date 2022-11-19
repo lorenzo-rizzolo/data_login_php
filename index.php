@@ -82,7 +82,7 @@ include 'data_login.php';
         $date = date("d-m-y");
         $arra = array($id, $date);
         echo "aggiungo: | ".$n." | ".$p." | ".$id." | ".$date;
-        add_user($n, $p, $arra);
+        //add_user($n, $p, $arra);
     ?>
 </div>
 
@@ -98,12 +98,10 @@ include 'data_login.php';
 <div class="box">
     <h4>Stampo tutti gli utenti <small>(guarda il codice in index.php)</small></h4>
     <?php
-    $i=0;
     foreach(get_all_user() as $user){
         echo "<div class='user'>";
         foreach($user as $us){
             echo $us."<br>";
-            $i++;
         }
         echo "</div>";
     }
@@ -124,7 +122,25 @@ include 'data_login.php';
     <?php
     $user = "test2";
     $pas = "54769";
-    echo del_user($user, $pas);
+    //del_user($user, $pas);
+    ?>
+</div>
+
+<div class="box">
+    <h4>Cambia password ad un utente<small>(guarda il codice in index.php)</small></h4>
+    <?php
+    $user = "test_detail";
+    $pas = "5439";
+    change_pass($user, $pas);
+    ?>
+</div>
+
+<div class="box">
+    <h4>Cambia password ad un utente basic<small>(guarda il codice in index.php)</small></h4>
+    <?php
+    $user = "test2";
+    $pas = "test";
+    change_pass_basic($user, $pas);
     ?>
 </div>
 
