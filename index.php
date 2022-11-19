@@ -29,7 +29,8 @@
 </head>
 
 <body>
-    
+
+
 <h3>Tutorial su come usare questa API <small>(guarda il codice in index.php)</small></h3>
 
 <?php
@@ -39,6 +40,7 @@ include 'data_login.php';
     <i>Per usare le funzioni:</i><br>
     <ul>
         <li>includi il file <code>data_login.php</code></li>
+        <li>per accedere alla gestione del DataBase usa <code>localhost/login</code></li>
         <li>Ci sono 4 funzioni principali:
             <ul>
                 <li>
@@ -64,9 +66,9 @@ include 'data_login.php';
 <div class="box">
     <h4>Aggiungo utente con dettagli <small>(guarda il codice in index.php)</small></h4>
     <?php
-        $n = "test";
-        $p = "qwe456";
-        $id = 4;
+        $n = "test2";
+        $p = "test";
+        $id = 3;
         $date = date("d-m-y");
         $arra = array($id, $date);
         echo "aggiungo: | ".$n." | ".$p." | ".$id." | ".$date;
@@ -111,7 +113,7 @@ include 'data_login.php';
     <h4>Elimino un utente<small>(guarda il codice in index.php)</small></h4>
     <?php
     $user = "test2";
-    $pas = "qwe456";
+    $pas = "54769";
     echo del_user($user, $pas);
     ?>
 </div>

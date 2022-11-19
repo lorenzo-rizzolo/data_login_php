@@ -1,12 +1,10 @@
 <?php
-//esempio di come usare add_user
-/*$arra = array(3, "cacca", 5, "ciao");
-$n = "lorenzo";
-$p = "qwe123";
-add_user($n, $p, $arra);*/
-
 function add_user($name, $pas, $arr){
-    $user = fopen("login/users/".$name.".txt", "w");
+    $per="login/users/";
+    if(basename(getcwd())=="login"){
+        $per="users/";
+    }
+    $user = fopen($per.$name.".txt", "w");
     fwrite($user,$pas);
     foreach($arr as $detail){
         fwrite($user, "\n".$detail);
@@ -14,7 +12,11 @@ function add_user($name, $pas, $arr){
     fclose($user);
 }
 function add_user_basic($name, $pas){
-    $user = fopen("login/users/".$name.".txt", "w");
+    $per="login/users/";
+    if(basename(getcwd())=="login"){
+        $per="users/";
+    }
+    $user = fopen($per.$name.".txt", "w");
     fwrite($user,$pas);
     fclose($user);
 }
@@ -24,7 +26,11 @@ function get_all_user(){
     $gen_i =0;
     $gen_arr = array();
     $arr = array();
-    foreach(glob("login/users/*.txt") as $user){
+    $per="/login/users/*.txt";
+    if(basename(getcwd())=="login"){
+        $per="/users/*.txt";
+    }
+    foreach(glob($per) as $user){
         $us = substr(basename($user), 0, -4);
         $arr[$i++]=$us;
         //echo $us."<br>";
@@ -47,7 +53,11 @@ function get_pass($name){
     $arr = array();
     $find = false;
     $error = array();
-    foreach(glob("login/users/*.txt") as $user){
+    $per="/login/users/*.txt";
+    if(basename(getcwd())=="login"){
+        $per="/users/*.txt";
+    }
+    foreach(glob($per) as $user){
         $us = substr(basename($user), 0, -4);
         if($us===$name){
             $arr[$i++]=$us;
@@ -75,16 +85,24 @@ function get_pass($name){
 
 function del_user($name, $pass){
     $del = false;
-    foreach(glob("login/users/*.txt") as $user){
+    $per="login/users/*.txt";
+    if(basename(getcwd())=="login"){
+        $per="users/*.txt";
+    }
+    foreach(glob($per) as $user){
         $us = basename($user);
         $us = substr($us, 0, -4);
-        if($us === $name){
+        //echo $us.$name."<br>";
+        if($us == $name){
+            //echo "trovato<br>";
             $file = fopen($user, "r");
             $l=0;
+            //echo $us.$l;
             foreach(file($user) as $line){
+                //echo $line."<br>";
                 if($l==0){
                     $line = substr($line, 0, -1);
-                    //echo $line.$pass;
+                    //echo $line."<br>";
                     if($line == $pass){
                         //echo $line;
                         unlink($user);
@@ -97,9 +115,46 @@ function del_user($name, $pass){
         }
     }
     if($del==true){
-        return "Utente ".$name." eliminato.";
+        echo "<script>alert(Utente ".$name." eliminato..);</script>";
     }else{
-        return "Utente ".$name." non trovato.";
+        echo "<script>alert(Utente ".$name." non trovato o password errata.);</script>";
+    }
+}
+
+function del_user_basic($name, $pass){
+    $del = false;
+    $per="login/users/*.txt";
+    if(basename(getcwd())=="login"){
+        $per="users/*.txt";
+    }
+    foreach(glob($per) as $user){
+        $us = basename($user);
+        $us = substr($us, 0, -4);
+        //echo $us.$name."<br>";
+        if($us == $name){
+            //echo "trovato<br>";
+            $file = fopen($user, "r");
+            $l=0;
+            //echo $us.$l;
+            foreach(file($user) as $line){
+                //echo $line."<br>";
+                if($l==0){
+                    //echo $line."<br>";
+                    if($line == $pass){
+                        //echo $line;
+                        unlink($user);
+                        $del = true;
+                    }
+                    //echo $line;
+                } 
+                $l++;
+            }
+        }
+    }
+    if($del==true){
+        echo "<script>alert('Utente ".$name." eliminato..');</script>";
+    }else{
+        echo "<script>alert('Utente ".$name." non trovato o password errata.');</script>";
     }
 }
 
