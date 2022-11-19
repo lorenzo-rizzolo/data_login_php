@@ -26,9 +26,9 @@ function get_all_user(){
     $gen_i =0;
     $gen_arr = array();
     $arr = array();
-    $per="/login/users/*.txt";
+    $per="login/users/*.txt";
     if(basename(getcwd())=="login"){
-        $per="/users/*.txt";
+        $per="users/*.txt";
     }
     foreach(glob($per) as $user){
         $us = substr(basename($user), 0, -4);
@@ -53,9 +53,9 @@ function get_pass($name){
     $arr = array();
     $find = false;
     $error = array();
-    $per="/login/users/*.txt";
+    $per="login/users/*.txt";
     if(basename(getcwd())=="login"){
-        $per="/users/*.txt";
+        $per="users/*.txt";
     }
     foreach(glob($per) as $user){
         $us = substr(basename($user), 0, -4);
