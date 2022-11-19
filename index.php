@@ -35,11 +35,36 @@
 <?php
 include 'data_login.php';
 ?>
+<div class="box">
+    <i>Per usare le funzioni:</i><br>
+    <ul>
+        <li>includi il file <code>data_login.php</code></li>
+        <li>Ci sono 4 funzioni principali:
+            <ul>
+                <li>
+                    <code>add_user(nome, pass, array_di_dettagli); aggiunge un utente con dettagli aggiuntivi.</code>
+                </li>
+                <li>
+                    <code>add_user_basic(nome, pass); aggiunge un utente.</code>
+                </li>
+                <li>
+                    <code>get_all_user(); resitutisce un array di array con gli utenti e le loro info.</code>
+                </li>
+                <li>
+                    <code>get_pass(nome); restituisce un array con nome e password dell'utente.</code>
+                </li>
+                <li>
+                    <code>del_user(nome, password); elimina un utente.</code>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
 
 <div class="box">
     <h4>Aggiungo utente con dettagli <small>(guarda il codice in index.php)</small></h4>
     <?php
-        $n = "test2";
+        $n = "test";
         $p = "qwe456";
         $id = 4;
         $date = date("d-m-y");
@@ -80,6 +105,14 @@ include 'data_login.php';
     foreach(get_pass($user) as $u){
         echo $u."<br>";
     }
+    ?>
+</div>
+<div class="box">
+    <h4>Elimino un utente<small>(guarda il codice in index.php)</small></h4>
+    <?php
+    $user = "test2";
+    $pas = "qwe456";
+    echo del_user($user, $pas);
     ?>
 </div>
 

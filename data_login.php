@@ -49,7 +49,7 @@ function get_pass($name){
     $error = array();
     foreach(glob("login/users/*.txt") as $user){
         $us = substr(basename($user), 0, -4);
-        if($us==$name){
+        if($us===$name){
             $arr[$i++]=$us;
             $file = fopen($user, "r");
             $l=0;
@@ -71,6 +71,36 @@ function get_pass($name){
         return $error;
     }
     return $arr;
+}
+
+function del_user($name, $pass){
+    $del = false;
+    foreach(glob("login/users/*.txt") as $user){
+        $us = basename($user);
+        $us = substr($us, 0, -4);
+        if($us === $name){
+            $file = fopen($user, "r");
+            $l=0;
+            foreach(file($user) as $line){
+                if($l==0){
+                    $line = substr($line, 0, -1);
+                    //echo $line.$pass;
+                    if($line == $pass){
+                        //echo $line;
+                        unlink($user);
+                        $del = true;
+                    }
+                    //echo $line;
+                } 
+                $l++;
+            }
+        }
+    }
+    if($del==true){
+        return "Utente ".$name." eliminato.";
+    }else{
+        return "Utente ".$name." non trovato.";
+    }
 }
 
 ?>
