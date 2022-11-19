@@ -26,6 +26,7 @@
         }
     </style>
     <title>tutorial</title>
+    <link rel="shortcut icon" href="login/css/favicon.ico" />
 </head>
 
 <body>
@@ -47,16 +48,25 @@ include 'data_login.php';
                     <code>add_user(nome, pass, array_di_dettagli); aggiunge un utente con dettagli aggiuntivi.</code>
                 </li>
                 <li>
-                    <code>add_user_basic(nome, pass); aggiunge un utente.</code>
+                    <code>add_user_basic(nome, pass); aggiunge un utente basic.</code>
+                </li>
+                <li>
+                    <code>del_user(nome, password); elimina un utente.</code>
+                </li>
+                <li>
+                    <code>del_user_basic(nome, password); elimina un utente basic.</code>
+                </li>
+                <li>
+                    <code>change_pass(nome, password); cambia password ad un utente.</code>
+                </li>
+                <li>
+                    <code>change_pass_basic(nome, password); cambia password ad un utente basic.</code>
                 </li>
                 <li>
                     <code>get_all_user(); resitutisce un array di array con gli utenti e le loro info.</code>
                 </li>
                 <li>
                     <code>get_pass(nome); restituisce un array con nome e password dell'utente.</code>
-                </li>
-                <li>
-                    <code>del_user(nome, password); elimina un utente.</code>
                 </li>
             </ul>
         </li>
@@ -66,9 +76,9 @@ include 'data_login.php';
 <div class="box">
     <h4>Aggiungo utente con dettagli <small>(guarda il codice in index.php)</small></h4>
     <?php
-        $n = "test2";
-        $p = "test";
-        $id = 3;
+        $n = "test_detail";
+        $p = "detail";
+        $id = 1;
         $date = date("d-m-y");
         $arra = array($id, $date);
         echo "aggiungo: | ".$n." | ".$p." | ".$id." | ".$date;

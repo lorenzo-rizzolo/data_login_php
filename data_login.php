@@ -73,6 +73,7 @@ function get_pass($name){
                 break;
             }
             $find = true;
+            fclose($file);
             //echo $us." - ".$p;
         }
     }
@@ -112,6 +113,7 @@ function del_user($name, $pass){
                 } 
                 $l++;
             }
+            fclose($file);
         }
     }
     if($del==true){
@@ -128,8 +130,7 @@ function del_user_basic($name, $pass){
         $per="users/*.txt";
     }
     foreach(glob($per) as $user){
-        $us = basename($user);
-        $us = substr($us, 0, -4);
+        $us = substr(basename($user), 0, -4);
         //echo $us.$name."<br>";
         if($us == $name){
             //echo "trovato<br>";
@@ -149,6 +150,7 @@ function del_user_basic($name, $pass){
                 } 
                 $l++;
             }
+            fclose($file);
         }
     }
     if($del==true){
@@ -156,6 +158,36 @@ function del_user_basic($name, $pass){
     }else{
         echo "<script>alert('Utente ".$name." non trovato o password errata.');</script>";
     }
+}
+
+function change_pass($name, $pass){
+    $per="login/users/*.txt";
+    if(basename(getcwd())=="login"){
+        $per="users/*.txt";
+    }
+    foreach(glob($per) as $user){
+        $us = substr(basename($user), 0, -4);
+        if($us==$name){
+            $file = fopen($user, "r");
+            $arr = array();
+            $l=0;
+            foreach(file($user) as $line){
+                if($l>0){
+                    $arr[$l++] = $line;
+                }
+            }
+        }
+    }
+}
+
+function change_pass_basic($name, $pas){
+    $per="login/users/";
+    if(basename(getcwd())=="login"){
+        $per="users/";
+    }
+    $user = fopen($per.$name.".txt", "w");
+    fwrite($user,$pas);
+    fclose($user);
 }
 
 ?>
