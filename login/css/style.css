@@ -1,0 +1,77 @@
+:root{
+    --headcolor: rgb(149, 216, 115);
+    --headtextcolor: black;
+    --error: rgb(231, 59, 59);
+    --colordb:blue;
+}
+
+body{
+    margin: 0px;
+    font-size: 120%;
+}
+
+header{
+    background-color: var(--headcolor);
+    color: var(--headtextcolor);
+    padding: 20px;
+    font-size: 150%;
+    margin: 20px;
+    border-radius: 10px;
+}
+header a{
+    font-size: 80%;
+    text-decoration: none;
+    color: var(--headtextcolor);
+    transition-duration: 0.5s;
+    border: 2px solid var(--headcolor);
+    border-radius: 10px;
+}
+header a:hover{
+    border-bottom: 2px solid blue;
+    border-radius: 10px;
+}
+.error{
+    margin: auto;
+    text-align: center;
+    background-color: var(--error);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+}
+
+.db{
+    margin: 20px;
+    display: inline-block;
+    background-color: var(--colordb) ;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 200px;
+}
+
+.cerca{
+    background-color: var(--headcolor);
+    margin: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 215px;
+    display: inline-block;
+}
+.cerca input[type=text]{
+    width: 200px;
+    font-size: 120%;
+    border-radius: 7px;
+    border: 1px solid black;
+    padding-left: 10px;
+    color: black;
+    margin-bottom: 10px;
+}
+input[type=submit]{
+    border-radius: 7px;
+    border: 1px solid black;
+    font-size: 100%;
+    background-color: var(--colordb);
+    color: white;
+    margin-bottom: 5px;
+}
