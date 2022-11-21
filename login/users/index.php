@@ -4,8 +4,8 @@
 <?php  
     //echo "\nUser IP Address - ".$_SERVER['REMOTE_ADDR']."\n\n";  
     if($_SERVER['REMOTE_ADDR'] == "::1"){
-        echo "<header>Bene, sei sul server principale.</header>";
+        echo "<script>window.open('../datalogin.php','_self');</script>";
     }else{
-        include "../error.php";
+        echo "<script>window.open('../','_self');</script>";
     }
 ?> 
