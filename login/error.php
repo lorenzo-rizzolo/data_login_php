@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>error</title>
 </head>
+
 <body>
     <header>
         DATAlogin
     </header>
 
     <div class="error">
-        Non hai i diritti necessari per accedere.
+        Non hai i permessi per accedere ad db.
     </div>
 </body>
 </html>
