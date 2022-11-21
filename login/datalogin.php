@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">	
     <title><?php echo basename(getcwd()) ?></title>
 	<?php
-		if(!$_SERVER['REMOTE_ADDR'] == "::1"){
-			echo "<link rel='stylesheet' href='../css/style.css'>";
+		if($_SERVER['REMOTE_ADDR'] != "::1"){
+			echo "<link rel='stylesheet' href='css/style.css'>";
 		}
 	?>
 </head>
 <body>
 
 <?php
-	if(!$_SERVER['REMOTE_ADDR'] == "::1"){
+	if($_SERVER['REMOTE_ADDR'] != "::1"){
 		 include "error.php";
 		 exit(1);
     }
