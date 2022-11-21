@@ -15,7 +15,7 @@
 
 <?php
 	if(!$_SERVER['REMOTE_ADDR'] == "::1"){
-		 include "../error.php";
+		 include "error.php";
 		 exit(1);
     }
 ?>
