@@ -211,9 +211,9 @@ function change_pass_basic($name, $pas){
     $find=false;
     foreach(glob($per) as $user){
         $us = substr(basename($user), 0, -4);
-        echo $us.$name." - ";
+        //echo $us.$name." - ";
         if($name == $us){
-            echo $name;
+            //echo $name;
             $find = true;
             $file = fopen($user, "w");
             fwrite($file,$pas);

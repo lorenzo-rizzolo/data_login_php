@@ -131,7 +131,7 @@ include 'data_login.php';
     <?php
     $user = "test_detail";
     $pas = "5439";
-    change_pass($user, $pas);
+    //change_pass($user, $pas);
     ?>
 </div>
 
@@ -140,7 +140,7 @@ include 'data_login.php';
     <?php
     $user = "test2";
     $pas = "test";
-    change_pass_basic($user, $pas);
+    //change_pass_basic($user, $pas);
     ?>
 </div>
 
