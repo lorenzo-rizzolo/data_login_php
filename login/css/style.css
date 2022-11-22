@@ -58,7 +58,7 @@ header a:hover{
     width: 215px;
     display: inline-block;
 }
-.cerca input[type=text]{
+.cerca input[type=text], .cerca input[type=password]{
     width: 200px;
     font-size: 120%;
     border-radius: 7px;
@@ -80,4 +80,14 @@ input[type=submit]:hover{
 }
 h4{
     margin: 10px;
+}
+
+.form{
+    background-color: lightgray;
+    width: 300px;
+    padding: 20px;
+    border-radius: 20px;
+    border: 2px solid var(--error);
+    margin: auto;
+    margin-top: 10px;
 }
