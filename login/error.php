@@ -16,6 +16,7 @@ if($_SESSION['pw']==$password){
 }elseif(isset($_GET['adm_acc'])){
     if($_GET['adm_pw'] == $password){
         $_SESSION['pw'] = $_GET['adm_pw'];
+        header("location:datalogin.php");
     }
 }
 ?>

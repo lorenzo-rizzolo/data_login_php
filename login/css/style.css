@@ -58,7 +58,7 @@ header a:hover{
     width: 215px;
     display: inline-block;
 }
-.cerca input[type=text], .cerca input[type=password]{
+.cerca input[type=text], .form input[type=password]{
     width: 200px;
     font-size: 120%;
     border-radius: 7px;
