@@ -50,7 +50,7 @@
             <h4>Nuovo utente semplice</h4>
             <form method="post">
                 <input type="text" name="nome" placeholder="nome">
-                <input type="text" name="pas" placeholder="password">
+                <input type="password" name="pas" placeholder="password">
                 <input type="submit" value="crea" name="nuovo">
             </form>
             <?php
@@ -67,7 +67,7 @@
             <h4>Elimina utente</h4>
             <form method="post">
                 <input type="text" name="nomeus" placeholder="nome">
-                <input type="text" name="passw" placeholder="password">
+                <input type="password" name="passw" placeholder="password">
                 <input type="submit" value="elimina" name="elimina">
             </form>
             <?php
