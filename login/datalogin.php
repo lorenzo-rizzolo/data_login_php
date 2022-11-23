@@ -42,7 +42,7 @@
         <div class="cerca">
             <h4>Cerca Utente</h4>
             <form method="post">
-                <input type="text" name="cerca" placeholder="cerca nome...">
+                <input type="search" name="cerca" placeholder="cerca nome...">
                 <input type="submit" value="cerca" name="invia">
             </form>
         </div>
