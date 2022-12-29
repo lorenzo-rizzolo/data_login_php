@@ -117,10 +117,9 @@ function del_user($name, $pass){
         }
     }
     if($del==true){
-        echo "ciao";
-        echo "<script>alert('Utente ".$name." eliminato..');</script>";
+        //echo "<script>alert('Utente ".$name." eliminato..');</script>";
     }else{
-        echo "<script>alert('Utente ".$name." non trovato o password errata.');</script>";
+        //echo "<script>alert('Utente ".$name." non trovato o password errata.');</script>";
     }
 }
 

@@ -42,7 +42,6 @@ header a:hover{
 
 .db{
     margin: 20px;
-    display: inline-block;
     background-color: var(--colordb) ;
     color: white;
     padding: 20px;
